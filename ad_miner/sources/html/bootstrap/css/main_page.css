@@ -1,5 +1,6 @@
 body {
-    background-color: #fff;
+    background-color: #181a1b;
+    color: #e0e0e0;
 }
 
 #hub {
@@ -34,9 +35,9 @@ body {
     margin-bottom: 0 !important;
 }
 
-a:link {
+a:link, a, a:hover {
     text-decoration: none;
-    color: black;
+    color: #8ab4f8 !important;
   }
 
 .main-container {
@@ -44,13 +45,27 @@ a:link {
     margin-left: 0.5% !important;
     margin-right: 0.5% !important;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: #23272b;
+    color: #e0e0e0;
+}
+
+.card, .card-body {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* Pie chart container override */
+.overview-chart, .main-overview-chart, #main-tab-overview {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
 }
 
 .card-header {
     /* padding: 0.75rem 1.25rem; */
     margin-bottom: 0;
-    background-color: #f8f9fc;
+    background-color: #181a1b !important;
+    color: #e0e0e0 !important;
     border-bottom: 0px;
   }
 
@@ -59,7 +74,7 @@ a:link {
 }
 
 .shadow {
-    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0,0,0,0.5) !important;
   }
 
 .alert-orange {
@@ -96,17 +111,17 @@ a:link {
   }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #23272b;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(167, 167, 167);
+    background: #444;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    background: #666;
 }
 
 /* Rating card */
@@ -118,9 +133,9 @@ a:link {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #23272b !important;
     background-clip: border-box;
-    border: 1px solid #e3e6f0;
+    border: 1px solid #444 !important;
     border-radius: 0.35rem;
     flex-grow: 1;
 }
@@ -146,16 +161,19 @@ a:link {
 .stats-card {
     box-shadow: 1px 1px darkgray;
     margin-bottom: 20px;
+    background-color: #23272b !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
 }
 
 .stats-link {
-    color: rgb(117, 117, 117);
+    color: #b0b0b0;
     font-size: 14px;
     padding: 0.5rem 0.5rem;
 }
 
 .stats-link:hover {
-    color: black;
+    color: #e0e0e0;
     cursor: pointer;
 }
 
@@ -186,7 +204,7 @@ a:link {
 }
 
 .stats-text {
-    color: rgb(61, 61, 61);
+    color: #e0e0e0;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 0px;
@@ -211,6 +229,9 @@ a:link {
 .main-card {
     box-shadow: 1px 1px darkgray;
     margin-bottom: 20px;
+    background-color: #23272b !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
 }
 
 .main-link {
@@ -237,6 +258,8 @@ a:link {
 
 .threat-card{
     transition: transform .2s; /* Animation */
+    background-color: #23272b !important;
+    color: #e0e0e0 !important;
 }
 
 .threat-card:hover {
@@ -436,10 +459,10 @@ a:link {
 }
 
 .number-in-details {
-  background-color: #858796;
-  color: white;
-  border-radius: 7px;
-  padding: 4px 5px;
+    background-color: #444;
+    color: #e0e0e0;
+    border-radius: 7px;
+    padding: 4px 5px;
 }
 
 
@@ -553,4 +576,162 @@ a:hover{
 .radio-group {
   display: flex;
   align-items: center;
+}
+
+/* --- DARK MODE OVERRIDES --- */
+
+/* Indicators of exposure breakdown card */
+.list-group-item, .list-group {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* SVG donut/pie chart background override */
+#main_circle svg {
+  background-color: #23272b !important;
+}
+#main_circle svg stop[style*="stop-color:#FFFFFF"],
+#main_circle svg stop[style*="stop-color:#F0F0F0"],
+#main_circle svg stop[style*="stop-color:#EEEEEE"],
+#main_circle svg stop[style*="stop-color:#E7E7E7"],
+#main_circle svg stop[style*="stop-color:#DCDCDC"],
+#main_circle svg stop[style*="stop-color:#D2D2D2"],
+#main_circle svg stop[style*="stop-color:#FAFAFA"],
+#main_circle svg stop[style*="stop-color:#EBEBEB"],
+#main_circle svg stop[style*="stop-color:#E6E6E6"],
+#main_circle svg stop[style*="stop-color:#F5F5F5"],
+#main_circle svg stop[style*="stop-color:#E9E9E9"],
+#main_circle svg stop[style*="stop-color:#C8C8C8"],
+#main_circle svg stop[style*="stop-color:#B9B9B9"],
+#main_circle svg stop[style*="stop-color:#BDBDBD"],
+#main_circle svg stop[style*="stop-color:#BEBEBE"],
+#main_circle svg stop[style*="stop-color:#AAAAAA"] {
+  stop-color: #23272b !important;
+}
+#main_circle svg path[style*="fill:url"],
+#main_circle svg path[style*="fill:#FFFFFF"],
+#main_circle svg path[style*="fill:#F0F0F0"],
+#main_circle svg path[style*="fill:#EEEEEE"],
+#main_circle svg path[style*="fill:#E7E7E7"],
+#main_circle svg path[style*="fill:#DCDCDC"],
+#main_circle svg path[style*="fill:#D2D2D2"],
+#main_circle svg path[style*="fill:#FAFAFA"],
+#main_circle svg path[style*="fill:#EBEBEB"],
+#main_circle svg path[style*="fill:#E6E6E6"],
+#main_circle svg path[style*="fill:#F5F5F5"],
+#main_circle svg path[style*="fill:#E9E9E9"],
+#main_circle svg path[style*="fill:#C8C8C8"],
+#main_circle svg path[style*="fill:#B9B9B9"],
+#main_circle svg path[style*="fill:#BDBDBD"],
+#main_circle svg path[style*="fill:#BEBEBE"],
+#main_circle svg path[style*="fill:#AAAAAA"] {
+  fill: #23272b !important;
+}
+
+#main_circle {
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  border: 4px solid #888 !important;
+  overflow: hidden;
+  background-clip: padding-box;
+  box-shadow: none;
+  margin: auto;
+  position: relative;
+  display: block;
+}
+
+#main_circle svg text, #main_circle svg tspan {
+  fill: #e0e0e0 !important;
+  font-weight: bold;
+}
+
+/* Flat, visible border for donut: handled in SVG template, but ensure no shadow or glow here */
+
+.nav-tabs .nav-link.active {
+  color: #8ab4f8 !important;
+  background-color: #23272b !important;
+  border-color: #444 #444 #23272b !important;
+}
+
+.nav-tabs .nav-link {
+  color: #b0b0b0 !important;
+  background-color: #181a1b !important;
+  border-color: #444 !important;
+}
+
+.modal-content, .modal, .modal-body, .modal-header, .modal-footer {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+.modal .card, .modal .card-body, .modal .card-header {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* --- CRITICAL BUTTON (compact) --- */
+.btn-critical, .card .btn-danger, .card .btn.btn-danger, .card .btn[style*="background-color: rgb(245, 75, 75)"] {
+  font-size: 0.95rem !important;
+  padding: 0.28rem 0.9rem !important;
+  border-radius: 0.4rem !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  letter-spacing: 0.2px;
+}
+
+.btn-critical {
+  background-color: #f54b4b !important;
+  color: #fff !important;
+  font-size: 0.92rem !important;
+  padding: 0.18rem 0.85rem !important;
+  border-radius: 0.35rem !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  letter-spacing: 0.1px !important;
+  border: none !important;
+  line-height: 1.2 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  display: inline-block !important;
+}
+
+/* --- FONT SIZES (compact) --- */
+.card-title, .main-card-category .card-title {
+  font-size: 1.02rem !important;
+  font-weight: 600 !important;
+}
+.card-subtitle, .main-card-category .card-subtitle {
+  font-size: 0.93rem !important;
+  font-weight: 400 !important;
+}
+.stats-number, .main-grade, .main-grade-letter {
+  font-size: 1.45rem !important;
+  font-weight: 700 !important;
+}
+.stats-text {
+  font-size: 0.98rem !important;
+}
+
+/* --- SEARCH BAR DARK MODE --- */
+#search-bar, .search-bar, input[type="search"] {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #444 !important;
+  border-radius: 0.4rem !important;
+  box-shadow: none !important;
+}
+#search-bar::placeholder, .search-bar::placeholder, input[type="search"]::placeholder {
+  color: #b0b0b0 !important;
+  opacity: 1;
+}
+
+/* --- MAIN HEADER TITLE CONTRAST --- */
+#title_current_page, .main-header-title, .navbar-brand, .navbar .navbar-brand {
+  color: #e0e0e0 !important;
+  font-weight: 700;
+  text-shadow: 0 1px 2px #181a1b;
 }

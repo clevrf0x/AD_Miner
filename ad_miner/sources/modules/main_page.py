@@ -538,16 +538,15 @@ def render(
                 not data[category_repartition]["global_rating"]
                 and data[category_repartition][risk_control] > 0
             ):
+                # Use a slightly larger, custom-styled div for the global rating
                 data[category_repartition][
                     "global_rating"
-                ] = f"""
-                    <div class="alert alert-{global_risk_controls[risk_control]["div_class"]} d-flex align-items-center global-rating" role="alert">
-                            <i class="{global_risk_controls[risk_control]["i_class"]} rating-icon"></i>
-                            <div class="rating-text">
-                            {global_risk_controls[risk_control]["risk_name"].upper()}
-                            </div>
-                        </div>
-                """
+                ] = f'''
+                    <div class="global-rating critical-alert d-flex align-items-center" style="background-color:rgb({global_risk_controls[risk_control]["colors"]}); color:#fff; border-radius:0.45rem; font-size:1.05rem; padding:0.32rem 1.2rem; font-weight:700; min-width:0; min-height:0; display:inline-flex; border:none; box-shadow:none; letter-spacing:0.12px;">
+                        <i class="{global_risk_controls[risk_control]["i_class"]} rating-icon" style="font-size:1.18em; margin-right:0.6em;"></i>
+                        <span class="rating-text" style="font-size:inherit; font-weight:inherit;">{global_risk_controls[risk_control]["risk_name"].upper()}</span>
+                    </div>
+                '''
                 data[category_repartition]["main_letter_grade"] = global_risk_controls[
                     risk_control
                 ]["code"]

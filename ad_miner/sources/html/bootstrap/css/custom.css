@@ -175,8 +175,9 @@ transition: transform .4s ease-in-out;
     border-radius: 15px;
     font-size: 8px;
     text-align: center;
-    background-color: rgb(44, 62, 80);
-    border-color: rgb(44, 62, 80);
+    background-color: #23272b;
+    border-color: #23272b;
+    color: #e0e0e0;
 }
 
 .mycard {
@@ -187,51 +188,50 @@ transition: transform .4s ease-in-out;
 /*Here starts sb-admin havoc*/
 
 .border-left-danger {
-  border-left: 0.25rem solid rgb(245, 75, 75) !important;
+  border-left: 0.25rem solid #e74c3c !important;
 }
 .border-left-warning {
-  border-left: 0.25rem solid rgb(245, 177, 75) !important;
+  border-left: 0.25rem solid #f1c40f !important;
 }
 .border-left-alert {
-  border-left: 0.25rem solid rgb(255, 221, 0) !important;
+  border-left: 0.25rem solid #f1c40f !important;
 }
 .border-left-success {
-  border-left: 0.25rem solid rgb(28, 200, 138) !important;
+  border-left: 0.25rem solid #2ecc71 !important;
 }
 .border-left-info {
-  border-left: 0.25rem solid #36b9cc !important;
+  border-left: 0.25rem solid #3498db !important;
 }
 .border-left-secondary {
-  border-left: 0.25rem solid #858796 !important;
+  border-left: 0.25rem solid #444 !important;
 }
 .text-danger {
-  color: rgb(245, 75, 75) !important;
+  color: #e74c3c !important;
 }
 .text-warning {
-  color: rgb(245, 177, 75) !important;
+  color: #f1c40f !important;
 }
 .text-alert {
-  color: rgb(255, 221, 0) !important;
+  color: #f1c40f !important;
 }
 .text-success {
-  color: rgb(28, 200, 138) !important;
+  color: #2ecc71 !important;
 }
 .text-info {
-  color: #36b9cc !important;
+  color: #3498db !important;
 }
 .text-secondary {
-  color: #858796 !important;
+  color: #b0b0b0 !important;
   text-align: justify;
 }
-
 .text-primary {
-  color: #4e73df !important;
+  color: #8ab4f8 !important;
 }
 a.text-primary:hover, a.text-primary:focus {
-  color: rgb(34, 74, 190) !important;
+  color: #a8cfff !important;
 }
 .text-gray-300 {
-  color: #dddfeb !important;
+  color: #444 !important;
 }
 .text-uppercase, .dropdown .dropdown-menu .dropdown-header, .sidebar .sidebar-heading {
   text-transform: uppercase !important;
