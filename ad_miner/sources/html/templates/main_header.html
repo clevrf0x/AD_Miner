@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="../css/mazars-icons.css" />
   <link rel="stylesheet" type="text/css" href="../css/bootstrap-icons.css" />
   <link rel="stylesheet" type="text/css" href="../css/flaty_bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/custom_dark_patch.css" />
 
   <link rel="stylesheet" href="../css/font.css" />
 
@@ -88,35 +89,31 @@
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-exclamation-diamond-fill" style="color: rgb(245, 75, 75); margin-right: 5px"></i>
+                  <i class="bi bi-exclamation-diamond-fill" style="color: var(--risk-red); margin-right: 5px"></i>
                   Immediate risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(245, 75, 75)">{{on_premise|immediate_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-red); color: #222">{{on_premise|immediate_risk}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-exclamation-triangle-fill" style="color: rgb(245, 177, 75); margin-right: 5px"></i>
+                  <i class="bi bi-exclamation-triangle-fill" style="color: var(--risk-orange); margin-right: 5px"></i>
                   Potential risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(245, 177, 75)">{{on_premise|potential_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-orange); color: #222">{{on_premise|potential_risk}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-dash-circle-fill" style="color: rgb(255, 221, 0); margin-right: 5px"></i>
+                  <i class="bi bi-dash-circle-fill" style="color: var(--risk-yellow); margin-right: 5px"></i>
                   Minor risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(255, 221, 0)">{{on_premise|minor_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-yellow); color: #222">{{on_premise|minor_risk}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-check-circle-fill" style="color: rgb(91, 180, 32); margin-right: 5px"></i>
+                  <i class="bi bi-check-circle-fill" style="color: var(--risk-green); margin-right: 5px"></i>
                   Handled risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(91, 180, 32)">{{on_premise|handled_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-green); color: #222">{{on_premise|handled_risk}}</span>
               </li>
             </ul>
           </div>
@@ -138,34 +135,31 @@
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-exclamation-diamond-fill" style="color: rgb(245, 75, 75); margin-right: 5px"></i>
+                  <i class="bi bi-exclamation-diamond-fill" style="color: var(--risk-red); margin-right: 5px"></i>
                   Immediate risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(245, 75, 75)">{{azure|immediate_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-red); color: #222">{{azure|immediate_risk}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-exclamation-triangle-fill" style="color: rgb(245, 177, 75); margin-right: 5px"></i>
+                  <i class="bi bi-exclamation-triangle-fill" style="color: var(--risk-orange); margin-right: 5px"></i>
                   Potential risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(245, 177, 75)">{{azure|potential_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-orange); color: #222">{{azure|potential_risk}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-dash-circle-fill" style="color: rgb(255, 221, 0); margin-right: 5px"></i>
+                  <i class="bi bi-dash-circle-fill" style="color: var(--risk-yellow); margin-right: 5px"></i>
                   Minor risk
                 </div>
-                <span class="badge rounded-pill" style="background-color: rgb(255, 221, 0)">{{azure|minor_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-yellow); color: #222">{{azure|minor_risk}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
-                  <i class="bi bi-check-circle-fill" style="color: rgb(91, 180, 32); margin-right: 5px"></i>
+                  <i class="bi bi-check-circle-fill" style="color: var(--risk-green); margin-right: 5px"></i>
                   Handled risk
                 </div>
-                <span class="badge rounded-pill"
-                  style="background-color: rgb(91, 180, 32)">{{azure|handled_risk}}</span>
+                <span class="badge rounded-pill" style="background-color: var(--risk-green); color: #222">{{azure|handled_risk}}</span>
               </li>
             </ul>
           </div>
@@ -178,22 +172,19 @@
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item">
                 <a class="nav-link active stats-link text-primary" data-bs-toggle="tab" id="stats-tab-title-overview"
-                  href="#recap" aria-selected="true"><i class="bi bi-search stats-link-icon"></i>Recap</a>
+                  href="#recap" aria-selected="true">Recap</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link stats-link text-primary" data-bs-toggle="tab" id="stats-tab-title-users"
-                  style="display:block" href="#users" aria-selected="false"><i
-                    class="bi bi-person-fill stats-link-icon"></i>Users</a>
+                  style="display:block" href="#users" aria-selected="false">Users</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link stats-link text-primary" data-bs-toggle="tab" id="stats-tab-title-computers"
-                  style="display:block" href="#computers" aria-selected="false"><i
-                    class="bi bi-pc-display stats-link-icon"></i>Computers</a>
+                  style="display:block" href="#computers" aria-selected="false">Computers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link stats-link text-primary" data-bs-toggle="tab" id="stats-tab-title-os"
-                  style="display:block" href="#os_distribution" aria-selected="false"><i
-                    class="bi bi-windows stats-link-icon"></i>OS</a>
+                  style="display:block" href="#os_distribution" aria-selected="false">OS</a>
               </li>
 
               <li class="nav-item">
@@ -959,7 +950,7 @@
                       ">
         <li>
           You have
-          <i class="bi bi-exclamation-diamond-fill" style="color: rgb(245, 75, 75); margin-right: 3px"></i>
+          <i class="bi bi-exclamation-diamond-fill" style="color: var(--risk-red); margin-right: 3px"></i>
           <span style="font-weight: 700">{{on_premise|immediate_risk}} critical
             {{on_premise|vuln_text_major_risk}}</span>
           : these must be addressed as soon as possible.
@@ -967,7 +958,7 @@
         <br />
         <li>
           You have
-          <i class="bi bi-exclamation-triangle-fill" style="color: rgb(245, 177, 75); margin-right: 3px"></i>
+          <i class="bi bi-exclamation-triangle-fill" style="color: var(--risk-orange); margin-right: 3px"></i>
           <span style="font-weight: 700">{{on_premise|potential_risk}} major
             {{on_premise|vuln_text_major_risk}}</span>
           : these should be fixed quickly as they could
@@ -985,28 +976,28 @@
           Permissions
         </h5>
       </div>
-      <div>{{on_premise|permissions_graph_summary}}</div>
+      <div class="pie-chart-description">{{on_premise|permissions_graph_summary}}</div>
     </div>
     <div class="col-graph-details">
       <div>
         <canvas id="chart-details-2-on-premise" class="chart-details"></canvas>
         <h5 class="card-title chart-details-title">Passwords</h5>
       </div>
-      <div>{{on_premise|passwords_graph_summary}}</div>
+      <div class="pie-chart-description">{{on_premise|passwords_graph_summary}}</div>
     </div>
     <div class="col-graph-details">
       <div>
         <canvas id="chart-details-3-on-premise" class="chart-details"></canvas>
         <h5 class="card-title chart-details-title">Kerberos</h5>
       </div>
-      <div>{{on_premise|kerberos_graph_summary}}</div>
+      <div class="pie-chart-description">{{on_premise|kerberos_graph_summary}}</div>
     </div>
     <div class="col-graph-details">
       <div>
         <canvas id="chart-details-4-on-premise" class="chart-details"></canvas>
         <h5 class="card-title chart-details-title">Misc</h5>
       </div>
-      <div>{{on_premise|misc_graph_summary}}</div>
+      <div class="pie-chart-description">{{on_premise|misc_graph_summary}}</div>
     </div>
   </div>
 </div>
@@ -1032,7 +1023,7 @@
                       ">
         <li>
           You have
-          <i class="bi bi-exclamation-diamond-fill" style="color: rgb(245, 75, 75); margin-right: 3px"></i>
+          <i class="bi bi-exclamation-diamond-fill" style="color: var(--risk-red); margin-right: 5px"></i>
           <span style="font-weight: 700">{{azure|immediate_risk}} critical
             {{azure|vuln_text_major_risk}}</span>
           : these must be addressed as soon as possible.
@@ -1040,7 +1031,7 @@
         <br />
         <li>
           You have
-          <i class="bi bi-exclamation-triangle-fill" style="color: rgb(245, 177, 75); margin-right: 3px"></i>
+          <i class="bi bi-exclamation-triangle-fill" style="color: var(--risk-orange); margin-right: 5px"></i>
           <span style="font-weight: 700">{{azure|potential_risk}} major
             {{azure|vuln_text_major_risk}}</span>
           : these should be fixed quickly as they could
@@ -1418,7 +1409,7 @@
   <div class="card main-card-category shadow mb-3 overview" id="right-col-on-prem">
     <div class="card-body">
       <h5 class="card-title">
-        <i class="bi bi-exclamation-diamond-fill" style="color: rgb(245, 75, 75); margin-right: 5px"></i>
+        <i class="bi bi-exclamation-diamond-fill" style="color: var(--risk-red); margin-right: 3px"></i>
         <span class="threats-number">{{on_premise|immediate_risk}}</span> Dangerous
         {{on_premise|issue_or_issues}}
       </h5>
@@ -1430,7 +1421,7 @@
 
       <br />
       <h5 class="card-title">
-        <i class="bi bi-exclamation-triangle-fill" style="color: rgb(245, 177, 75); margin-right: 5px"></i>
+        <i class="bi bi-exclamation-triangle-fill" style="color: var(--risk-orange); margin-right: 3px"></i>
         <span class="threats-number">{{on_premise|potential_risk}}</span>
         {{on_premise|alert_or_alerts}}
       </h5>
@@ -1441,7 +1432,7 @@
 
       <br />
       <h5 class="card-title">
-        <i class="bi bi-dash-circle-fill" style="color: rgb(255, 221, 0); margin-right: 5px"></i>
+        <i class="bi bi-dash-circle-fill" style="color: var(--risk-yellow); margin-right: 3px"></i>
         <span class="threats-number">{{on_premise|minor_risk}}</span>
         {{on_premise|minor_alert_or_alerts}}
       </h5>
@@ -1456,7 +1447,7 @@
   <div class="card main-card-category shadow limit-height mb-3 overview" id="right-col-azure" style="display:none">
     <div class="card-body">
       <h5 class="card-title">
-        <i class="bi bi-exclamation-diamond-fill" style="color: rgb(245, 75, 75); margin-right: 5px"></i>
+        <i class="bi bi-exclamation-diamond-fill" style="color: #e57373; margin-right: 5px"></i>
         <span class="threats-number">{{azure|immediate_risk}}</span> Dangerous
         {{azure|issue_or_issues}}
       </h5>
@@ -1468,7 +1459,7 @@
 
       <br />
       <h5 class="card-title">
-        <i class="bi bi-exclamation-triangle-fill" style="color: rgb(245, 177, 75); margin-right: 5px"></i>
+        <i class="bi bi-exclamation-triangle-fill" style="color: #ffb74d; margin-right: 5px"></i>
         <span class="threats-number">{{azure|potential_risk}}</span>
         {{azure|alert_or_alerts}}
       </h5>
@@ -1479,7 +1470,7 @@
 
       <br />
       <h5 class="card-title">
-        <i class="bi bi-dash-circle-fill" style="color: rgb(255, 221, 0); margin-right: 5px"></i>
+        <i class="bi bi-dash-circle-fill" style="color: #fff176; margin-right: 5px"></i>
         <span class="threats-number">{{azure|minor_risk}}</span>
         {{azure|minor_alert_or_alerts}}
       </h5>
@@ -1614,8 +1605,8 @@
         {
           label: 'Immediate risk',
           data: `{{value_evolution_time_immediate_risk}}`,
-          backgroundColor: 'rgb(245, 75, 75)',
-          borderColor: 'rgb(245, 75, 75)',
+          backgroundColor: '#C2393D',
+          borderColor: '#C2393D',
 
           fill: true,
           hoverOffset: 4,
@@ -1623,8 +1614,8 @@
         {
           label: 'Potential risk',
           data: `{{value_evolution_time_potential_risk}}`,
-          backgroundColor: 'rgb(245, 177, 75)',
-          borderColor: 'rgb(245, 177, 75)',
+          backgroundColor: '#D77404',
+          borderColor: '#D77404',
 
           fill: true,
           hoverOffset: 4,
@@ -1632,8 +1623,8 @@
         {
           label: 'Minor risk',
           data: `{{value_evolution_time_minor_risk}}`,
-          backgroundColor: 'rgb(255, 221, 0)',
-          borderColor: 'rgb(255, 221, 0)',
+          backgroundColor: '#C8B00B',
+          borderColor: '#C8B00B',
 
           fill: true,
           hoverOffset: 4,
@@ -1641,8 +1632,8 @@
         {
           label: 'Handled risk',
           data: `{{value_evolution_time_handled_risk}}`,
-          backgroundColor: 'rgb(91, 180, 32)',
-          borderColor: 'rgb(91, 180, 32)',
+          backgroundColor: '#3D8C5E',
+          borderColor: '#3D8C5E',
 
           fill: true,
           hoverOffset: 4,
@@ -1650,8 +1641,8 @@
         {
           label: 'Not Evaluated',
           data: `{{value_not_evaluated_time_handled_risk}}`,
-          backgroundColor: 'rgb(133,135,150)',
-          borderColor: 'rgb(133,135,150)',
+          backgroundColor: 'rgba(133,135,150, 0.9)',
+          borderColor: 'rgba(133,135,150, 0.9)',
 
           fill: true,
           hoverOffset: 4,
@@ -1886,10 +1877,10 @@
           cutout: '60%',
           data: `{{on_premise|main_graph_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -1929,10 +1920,10 @@
           cutout: '60%',
           data: `{{on_premise|permissions_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -1972,10 +1963,10 @@
           cutout: '60%',
           data: `{{on_premise|passwords_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2015,10 +2006,10 @@
           cutout: '60%',
           data: `{{on_premise|kerberos_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2058,10 +2049,10 @@
           cutout: '60%',
           data: `{{on_premise|misc_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2102,10 +2093,10 @@
           cutout: '60%',
           data: `{{azure|main_graph_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2145,10 +2136,10 @@
           cutout: '60%',
           data: `{{azure|attack_path_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2188,10 +2179,10 @@
           cutout: '60%',
           data: `{{azure|ad_connect_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2231,10 +2222,10 @@
           cutout: '60%',
           data: `{{azure|ms_graph_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],
@@ -2274,10 +2265,10 @@
           cutout: '60%',
           data: `{{azure|sp_mi_data}}`,
           backgroundColor: [
-            'rgba(245, 75, 75, 0.9)',
-            'rgba(245, 177, 75, 0.9)',
-            'rgba(255, 221, 0, 0.9)',
-            'rgba(91, 180, 32, 0.9)',
+            '#C2393D',   // Critical
+            '#D77404',   // Major
+            '#C8B00B',   // Minor
+            '#3D8C5E',   // Handled
           ],
         },
       ],

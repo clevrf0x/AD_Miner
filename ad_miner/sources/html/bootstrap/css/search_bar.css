@@ -86,3 +86,30 @@
     font-weight: bold;
     background-color: lightgoldenrodyellow;
 }
+
+/* --- DARK MODE FOR SEARCH RESULT POPUP --- */
+#search-dropdown, #search-dropdown.active {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #444 !important;
+}
+
+.dropdown-item {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+.dropdown-item:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.search-element-description {
+  color: #b0b0b0 !important;
+}
+
+.search-highlight {
+  background-color: #444 !important;
+  color: #ffe082 !important;
+}

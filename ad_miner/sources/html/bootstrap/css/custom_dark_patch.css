@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+  background: #23272b !important;
+  color: #e0e0e0 !important;
+}
+
+.card, .card-body, .card-header, .ag-theme-balham-dark, .ag-theme-balham-dark .ag-header, .ag-theme-balham-dark .ag-header-cell, .ag-theme-balham-dark .ag-header-row {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+.ag-theme-balham-dark .ag-header, .ag-theme-balham-dark .ag-header-cell, .ag-theme-balham-dark .ag-header-row {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+.ag-theme-balham-dark .ag-row, .ag-theme-balham-dark .ag-cell {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+}
+
+.modal-content, .modal, .modal-body, .modal-header, .modal-footer {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+.offcanvas, .offcanvas-header, .offcanvas-body {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+.offcanvas .descriptionText, .modal .descriptionText {
+  color: #e0e0e0 !important;
+  font-weight: 400;
+}
+
+.btn-close, .offcanvas .btn-close, .modal .btn-close {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") !important;
+  opacity: 0.7;
+}
+.btn-close:hover, .offcanvas .btn-close:hover, .modal .btn-close:hover {
+  opacity: 1;
+}
+
+/* Table header fix */
+.ag-theme-balham-dark .ag-header, .ag-theme-balham-dark .ag-header-cell, .ag-theme-balham-dark .ag-header-row {
+  background-color: #181a1b !important;
+  color: #e0e0e0 !important;
+}
+
+/* Ensure links are visible */
+a, a:link, a:visited, a:hover, a:active {
+  color: #8ab4f8 !important;
+  text-decoration: none;
+}
+
+/* Fix for table text */
+.ag-theme-balham-dark .ag-cell {
+  color: #e0e0e0 !important;
+}
+
+/* Fix for modal title */
+.modal-title, .offcanvas-title, .modal-header h5 {
+  color: #e0e0e0 !important;
+}
+
+/* --- UNIFY HEADER COLORS AND FONT ONLY (ESSENTIALS) --- */
+.navbar-brand, .navbar-brand:visited, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
+  color: #e0e0e0 !important;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Remove blue color from listing page title */
+#title_current_page, .main-header-title {
+  color: #e0e0e0;
+}
+
+/* Info icon (offcanvas trigger) button: no background, no blue on active/focus/hover */
+.btn[aria-controls="offcanvasExample"],
+.btn[aria-controls="offcanvasExample"]:hover,
+.btn[aria-controls="offcanvasExample"]:focus,
+.btn[aria-controls="offcanvasExample"]:active {
+  background: none !important;
+  box-shadow: none !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Ensure info icon stays white on all states */
+.btn[aria-controls="offcanvasExample"] img {
+  filter: none !important;
+}
+
+/* Fix font weights in modal cards for good UI/UX */
+.smolcard-title {
+  font-weight: 500;
+}
+.h6.mb-0.text-secondary,
+.h6.text-gray-800 {
+  font-weight: 300;
+}
+
+/* Remove justified alignment from indicators of exposure breakdown section */
+.overview, .main-card-category, .overview p, .main-card-category p, .overview ul, .main-card-category ul, .overview li, .main-card-category li {
+  text-align: left !important;
+}
+
+/* Make tab section titles lighter weight */
+.nav-link.main-link, .nav-link.stats-link, .card-header-tabs .nav-link {
+  font-weight: 500 !important;
+}
+
+/* Remove justified alignment from card paragraphs */
+.h6.mb-0.text-secondary,
+.card .card-body p,
+.card .card-body .card-paragraph {
+  text-align: left !important;
+}
+
+/* Remove empty footer space and force modal to use 90vh (account for header) */
+.modal-fullscreen .modal-content,
+#cardsModal .modal-content {
+  height: 90vh !important;
+  min-height: 90vh !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: 0 !important;
+}
+#cardsModal .modal-body {
+  height: 100%;
+  min-height: 100%;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  overflow-y: auto;
+}
+
+.pie-chart-description,
+.pie-chart-description p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+:root {
+  --risk-green: #3D8C5E; /* rgb(61, 140, 94) */
+  --risk-orange: #D77404; /* rgb(215, 116, 4) */
+  --risk-yellow: #C8B00B; /* rgb(200, 176, 11) */
+  --risk-red: #C2393D; /* rgb(194, 57, 61) */
+}
+
+/* Override CRITICAL button for dark mode */
+.btn-critical-dark, .btn-danger, .card .btn-danger, .card .btn.btn-danger {
+    background-color: var(--risk-red) !important;
+    border-color: var(--risk-red) !important;
+    color: #fff !important;
+    font-weight: 700;
+    box-shadow: none !important;
+}
+.btn-critical-dark:hover, .btn-danger:hover {
+    background-color: #a32d30 !important;
+    border-color: #a32d30 !important;
+}
+
+.ag-theme-balham-dark, .ag-theme-balham-dark .ag-root-wrapper, .ag-theme-balham-dark .ag-root {
+  background-color: #23272b !important;
+} 
+
+.btn-circle.btn-sm, .btn-circle.btn-sm:active, .btn-circle.btn-sm:focus, .btn-circle.btn-sm:visited, .btn-circle.btn-sm:hover, .btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:visited, .btn-primary:hover {
+  background: transparent !important;
+  color: #8ab4f8 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+} 

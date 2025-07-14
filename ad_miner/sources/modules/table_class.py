@@ -9,6 +9,7 @@ class Table:
         title,
         template="table",
         classes="thead-light",
+        table_class="table",
     ):
         self.id = self.generateRandID()
         self.template_base_path = HTML_DIRECTORY / "components/table/"
@@ -17,6 +18,7 @@ class Table:
         self.headers = []
         self.rows = []
         self.class_css = classes
+        self.table_class = table_class
 
     @staticmethod
     def generateRandID():
@@ -41,7 +43,7 @@ class Table:
         with open(
             self.template_base_path / (self.template + "_header.html"), "r"
         ) as header_f:
-            page_f.write(header_f.read() % (self.id, self.id, self.title, self.id))
+            page_f.write(header_f.read() % (self.id, self.id, self.title, self.id, self.table_class))
 
         page_f.write('<thead class=" ' + self.class_css + ' ">\n<tr>\n')
 

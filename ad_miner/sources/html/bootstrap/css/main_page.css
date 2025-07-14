@@ -1,6 +1,11 @@
+html, body {
+  height: 100%;
+}
+
 body {
-    background-color: #181a1b;
-    color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #hub {
@@ -41,12 +46,55 @@ a:link, a, a:hover {
   }
 
 .main-container {
-    max-width: 99% !important;
-    margin-left: 0.5% !important;
-    margin-right: 0.5% !important;
-    margin-top: 20px;
-    background-color: #23272b;
-    color: #e0e0e0;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  max-width: 100vw;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.row {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-left, .col-center, .col-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 0;
+  height: auto;
+}
+
+.col-left {
+  width: 21%;
+  max-width: 350px;
+}
+.col-center {
+  width: 58%;
+}
+.col-right {
+  width: 21%;
+  max-width: 350px;
+}
+
+.card, .main-card-category, .overview {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-bottom: 1rem;
+}
+
+/* Remove fixed heights from columns */
+.col-left, .col-center, .col-right {
+  height: auto !important;
 }
 
 .card, .card-body {
@@ -302,7 +350,7 @@ a:link, a, a:hover {
 }
 
 .hexagon-red:hover {
-    filter: brightness(2.5);
+    filter: brightness(1.2);
 }
 
 .hexa-main-div {
@@ -375,34 +423,28 @@ a:link, a, a:hover {
 
 /* Funky part */
 .border-left-danger {
-  border-left: 0.25rem solid rgb(245, 75, 75) !important;
+  border-left: 0.25rem solid var(--risk-red) !important;
 }
 .border-left-warning {
-  border-left: 0.25rem solid rgb(245, 177, 75) !important;
+  border-left: 0.25rem solid var(--risk-orange) !important;
 }
 .border-left-alert {
-  border-left: 0.25rem solid rgb(255, 221, 0) !important;
+  border-left: 0.25rem solid var(--risk-yellow) !important;
 }
 .border-left-success {
-  border-left: 0.25rem solid rgb(28, 200, 138) !important;
-}
-.border-left-info {
-  border-left: 0.25rem solid #36b9cc !important;
-}
-.border-left-secondary {
-  border-left: 0.25rem solid #858796 !important;
+  border-left: 0.25rem solid var(--risk-green) !important;
 }
 .text-danger {
-  color: rgb(245, 75, 75) !important;
+  color: var(--risk-red) !important;
 }
 .text-warning {
-  color: rgb(245, 177, 75) !important;
+  color: var(--risk-orange) !important;
 }
 .text-alert {
-  color: rgb(255, 221, 0) !important;
+  color: var(--risk-yellow) !important;
 }
 .text-success {
-  color: rgb(28, 200, 138) !important;
+  color: var(--risk-green) !important;
 }
 .text-info {
   color: #36b9cc !important;
@@ -734,4 +776,90 @@ a:hover{
   color: #e0e0e0 !important;
   font-weight: 700;
   text-shadow: 0 1px 2px #181a1b;
+}
+
+/* --- HIDE SCROLLBARS BUT KEEP SCROLLING --- */
+body, .main-container, .card, .card-body, .modal-body, .row, .col-left, .col-center, .col-right {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+body::-webkit-scrollbar, .main-container::-webkit-scrollbar, .card::-webkit-scrollbar, .card-body::-webkit-scrollbar, .modal-body::-webkit-scrollbar, .row::-webkit-scrollbar, .col-left::-webkit-scrollbar, .col-center::-webkit-scrollbar, .col-right::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Restore grid layout for modal cards */
+.modal .row, .modal .card-container {
+  display: flex;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  gap: 16px;
+}
+
+/* Only apply nowrap to main dashboard rows, not modals */
+.main-container > .row {
+  flex-wrap: nowrap;
+}
+
+/* --- RESTORE 4-CARD GRID IN MODALS --- */
+.modal .row, .modal .card-container {
+  display: flex;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+  gap: 0 !important;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.modal .card {
+  width: 25% !important;
+  min-width: 260px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .modal .card { width: 33.333% !important; }
+}
+@media (max-width: 900px) {
+  .modal .card { width: 50% !important; }
+}
+@media (max-width: 600px) {
+  .modal .card { width: 100% !important; }
+}
+
+/* --- DARK THEME FOR OFFCANVAS (sidebar/modal) --- */
+.offcanvas,
+.offcanvas-header,
+.offcanvas-body {
+  background-color: #23272b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* --- DARK THEME OVERRIDE FOR DESCRIPTION TEXT IN OFFCANVAS --- */
+.offcanvas .descriptionText {
+  color: #e0e0e0 !important;
+  font-weight: 400;
+}
+
+/* --- DARK THEME: High-contrast close (X) icon for modals and offcanvas --- */
+.btn-close,
+.offcanvas .btn-close,
+.modal .btn-close {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") !important;
+  opacity: 0.7;
+}
+.btn-close:hover,
+.offcanvas .btn-close:hover,
+.modal .btn-close:hover {
+  opacity: 1;
+}
+
+/* --- DARK THEME: ag-Grid header override to match custom color scheme --- */
+.ag-theme-balham-dark .ag-header,
+.ag-theme-balham-dark .ag-header-cell,
+.ag-theme-balham-dark .ag-header-row {
+  background-color: #181a1b !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
 }

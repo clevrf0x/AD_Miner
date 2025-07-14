@@ -436,7 +436,8 @@ def render(
     global_risk_controls = {
         "immediate_risk": {
             "code": "D",
-            "colors": "245, 75, 75",
+            "color": "#C2393D",
+            "color_rgb": "194, 57, 61",
             "i_class": "bi bi-exclamation-diamond-fill",
             "div_class": "danger",
             "panel_key": "list_cards_dangerous_issues",
@@ -444,7 +445,8 @@ def render(
         },
         "potential_risk": {
             "code": "C",
-            "colors": "245, 177, 75",
+            "color": "#D77404",
+            "color_rgb": "215, 116, 4",
             "i_class": "bi bi-exclamation-triangle-fill",
             "div_class": "orange",
             "panel_key": "list_cards_alert_issues",
@@ -452,7 +454,8 @@ def render(
         },
         "minor_risk": {
             "code": "B",
-            "colors": "255, 221, 0",
+            "color": "#C8B00B",
+            "color_rgb": "200, 176, 11",
             "i_class": "bi bi-dash-circle-fill",
             "div_class": "yellow",
             "panel_key": "list_cards_minor_alert_issues",
@@ -460,7 +463,8 @@ def render(
         },
         "handled_risk": {
             "code": "A",
-            "colors": "91, 180, 32",
+            "color": "#3D8C5E",
+            "color_rgb": "61, 140, 94",
             "i_class": "bi bi-check-circle-fill",
             "div_class": "success",
             "panel_key": "",
@@ -521,12 +525,12 @@ def render(
                         global_risk_controls[risk_control]["code"]
                     )
                     data[category_repartition][f"{category}_letter_color"] = (
-                        global_risk_controls[risk_control]["colors"]
+                        global_risk_controls[risk_control]["color_rgb"]
                     )
                     data[category_repartition][
                         f"{category}_graph_summary"
                     ] = f"""
-                        <p><i class="{global_risk_controls[risk_control]["i_class"]}" style="color: rgb({global_risk_controls[risk_control]["colors"]}); margin-right: 3px;"></i>
+                        <p><i class="{global_risk_controls[risk_control]["i_class"]}" style="color: {global_risk_controls[risk_control]["color"]}; margin-right: 3px;"></i>
                             <span>{categories[category]}</span> {global_risk_controls[risk_control]["risk_name"]} {common_analysis.manage_plural(categories[category], ("Vulnerability", "Vulnerabilities"))}
                         </p>"""
                 data[category_repartition][f"{category}_data"].append(
@@ -542,7 +546,7 @@ def render(
                 data[category_repartition][
                     "global_rating"
                 ] = f'''
-                    <div class="global-rating critical-alert d-flex align-items-center" style="background-color:rgb({global_risk_controls[risk_control]["colors"]}); color:#fff; border-radius:0.45rem; font-size:1.05rem; padding:0.32rem 1.2rem; font-weight:700; min-width:0; min-height:0; display:inline-flex; border:none; box-shadow:none; letter-spacing:0.12px;">
+                    <div class="global-rating critical-alert d-flex align-items-center" style="background-color:{global_risk_controls[risk_control]["color"]}; color:#fff; border-radius:0.45rem; font-size:1.05rem; padding:0.32rem 1.2rem; font-weight:700; min-width:0; min-height:0; display:inline-flex; border:none; box-shadow:none; letter-spacing:0.12px;">
                         <i class="{global_risk_controls[risk_control]["i_class"]} rating-icon" style="font-size:1.18em; margin-right:0.6em;"></i>
                         <span class="rating-text" style="font-size:inherit; font-weight:inherit;">{global_risk_controls[risk_control]["risk_name"].upper()}</span>
                     </div>
@@ -552,14 +556,14 @@ def render(
                 ]["code"]
                 data[category_repartition]["main_letter_color"] = global_risk_controls[
                     risk_control
-                ]["colors"]
+                ]["color_rgb"]
 
             # Creating cards of the right panel
             if global_risk_controls[risk_control]["panel_key"]:
                 data[category_repartition][
                     global_risk_controls[risk_control]["panel_key"]
                 ] = ""
-                red_status = f"""<i class='{global_risk_controls[risk_control]["i_class"]}' style='color: rgb({global_risk_controls[risk_control]["colors"]}); margin-right: 3px;'></i> {risk_control.replace("_", " ").capitalize()}"""
+                red_status = f"""<span style='display:inline-flex; align-items:center; justify-content:center; width:100%; text-align:center;'><i class='{global_risk_controls[risk_control]["i_class"]}' style='color: {global_risk_controls[risk_control]["color"]}; margin-right: 3px;'></i>{risk_control.replace('_', ' ').capitalize()}</span>"""
                 for issue in data[category_repartition][f"{risk_control}_list"]:
                     custom_title = dico_name_description[issue].replace("$", "")
                     data[category_repartition][
@@ -571,7 +575,7 @@ def render(
                                     <h6 class="card-title">{dico_name_title[issue]}</h6>
                                 </div>
                                 <span class="position-absolute top-0 start-100 translate-middle p-2 border border-light rounded-circle"
-                                style="background-color: rgb({global_risk_controls[risk_control]["colors"]});">
+                                style="background-color: {global_risk_controls[risk_control]["color"]};">
                                 </span>
                                 </div>
                         </a>

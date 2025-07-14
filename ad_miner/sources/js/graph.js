@@ -53,6 +53,21 @@ var options = {
   nodes: {
     size: 25,
     shape: 'image',
+    font: {
+      color: '#e0e0e0',
+      size: 16,
+      face: 'Inter, Arial, sans-serif',
+      strokeWidth: 0,
+      strokeColor: null,
+      background: null,
+      vadjust: 0,
+      bold: {
+        color: '#e0e0e0',
+        size: 16,
+        face: 'Inter, Arial, sans-serif',
+        mod: 'bold'
+      }
+    }
   },
   edges: {
     smooth: {
@@ -62,6 +77,15 @@ var options = {
     color: 'rgba(119, 119, 119, 1)',
     arrows: 'to',
     length: 250,
+    font: {
+      color: '#e0e0e0',
+      size: 14,
+      face: 'Inter, Arial, sans-serif',
+      strokeWidth: 0,
+      strokeColor: null,
+      background: null,
+      vadjust: 0
+    }
   },
   groups: icon_group_options,
 };
@@ -886,18 +910,12 @@ function neighbourhoodHighlight(params) {
           allEdges[edgeId].to == path_to_highlight[j + 1]
         ) {
           allEdges[edgeId].background = {
-            size: 10,
+            size: 12,
             enabled: true,
-            color: 'rgba(0, 176, 255,1)',
+            color: '#4e8cff',
           };
-          // Check if link between two different domains
-          if (taggedEdges.includes(edgeId)) {
-            allEdges[edgeId].color = 'rgba(102, 0, 204, 1)';
-          }
-          else {
-            allEdges[edgeId].color = 'rgba(77,77,77,1)';
-          }
-
+          allEdges[edgeId].color = '#4e8cff';
+          allEdges[edgeId].width = 5;
           if (
             allEdges[edgeId].hiddenLabel !== undefined &&
             allEdges[edgeId].hiddenLabel != ' '
@@ -905,6 +923,18 @@ function neighbourhoodHighlight(params) {
             allEdges[edgeId].label = allEdges[edgeId].hiddenLabel;
             allEdges[edgeId].hiddenLabel = undefined;
           }
+          // Make the label bold, white, and larger for the active path
+          allEdges[edgeId].font = {
+            color: '#fff',
+            size: 18,
+            face: 'Inter, Arial, sans-serif',
+            bold: {
+              color: '#fff',
+              size: 18,
+              face: 'Inter, Arial, sans-serif',
+              mod: 'bold'
+            }
+          };
         }
       }
     }

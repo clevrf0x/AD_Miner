@@ -25,7 +25,7 @@ class Card:
         self.lines.append(line)
 
     def setTable(self, title, headers, rows):
-        self.table = Table(title)
+        self.table = Table(title, table_class="table table-dark")
         self.table.setheaders(headers)
         self.table.setRows(rows)
 

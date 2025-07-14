@@ -89,23 +89,23 @@ class SmolCard:
         elif self.criticity == "1":
             hexa_color = "red"
             color = "danger"
-            rgb_color = "245, 75, 75"
+            rgb_color = "#C2393D" # rgb(194, 57, 61)
         elif self.criticity == "2":
             hexa_color = "orange"
             color = "warning"
-            rgb_color = "245, 177, 75"
+            rgb_color = "#D77404" # rgb(215, 116, 4)
         elif self.criticity == "3":
             hexa_color = "yellow"
             color = "alert"
-            rgb_color = "255, 221, 0"
+            rgb_color = "#C8B00B" # rgb(200, 176, 11)
         elif self.criticity == "4":
             hexa_color = "green"
             color = "success"
-            rgb_color = "91, 180, 32"
+            rgb_color = "#3D8C5E" # rgb(61, 140, 94)
         elif self.criticity == "5":
             hexa_color = "green"
             color = "success"
-            rgb_color = "91, 180, 32"
+            rgb_color = "#3D8C5E" # rgb(61, 140, 94)
         else:
             hexa_color = "grey"
             color = "secondary"

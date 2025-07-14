@@ -91,25 +91,27 @@ function display_one_hexagon(name, hexa_dict) {
   var link = hexa_dict.link;
 
   switch (color) {
+    // Risk color palette
+    // RED: #C2393D, ORANGE: #D77404, YELLOW: #C8B00B, GREEN: #3D8C5E
     case 'red':
       var status =
-        "<i class='bi bi-exclamation-diamond-fill' style='color: rgb(245, 75, 75); margin-right: 3px;'></i> Immediate risk";
+        "<span style='display:inline-flex; align-items:center; justify-content:center; width:100%; text-align:center;'><i class='bi bi-exclamation-diamond-fill' style='color: #C2393D; margin-right: 3px;'></i> Immediate risk</span>";
       break;
     case 'orange':
       var status =
-        "<i class='bi bi-exclamation-triangle-fill' style='color: rgb(245, 177, 75); margin-right: 3px;'></i> Potential risk";
+        "<span style='display:inline-flex; align-items:center; justify-content:center; width:100%; text-align:center;'><i class='bi bi-exclamation-triangle-fill' style='color: #D77404; margin-right: 3px;'></i> Potential risk</span>";
       break;
     case 'yellow':
       var status =
-        "<i class='bi bi-dash-circle-fill' style='color: rgb(255, 221, 0); margin-right: 3px;'></i> Minor risk";
+        "<span style='display:inline-flex; align-items:center; justify-content:center; width:100%; text-align:center;'><i class='bi bi-dash-circle-fill' style='color: #C8B00B; margin-right: 3px;'></i> Minor risk</span>";
       break;
     case 'green':
       var status =
-        "<i class='bi bi-check-circle-fill' style='color: rgb(91, 180, 32); margin-right: 3px;'></i> Handled risk";
+        "<span style='display:inline-flex; align-items:center; justify-content:center; width:100%; text-align:center;'><i class='bi bi-check-circle-fill' style='color: #3D8C5E; margin-right: 3px;'></i> Handled risk</span>";
       break;
     default:
       var status =
-        "<i class='bi bi-dash-circle-fill' style='color: rgb(133,135,150); margin-right: 3px;'></i> Risk not evaluated";
+        "<span style='display:inline-flex; align-items:center; justify-content:center; width:100%; text-align:center;'><i class='bi bi-dash-circle-fill' style='color: rgb(133,135,150); margin-right: 3px;'></i> Risk not evaluated</span>";
   }
 
   var style = `top: ${x}%; left: ${y}%`;
