@@ -1,3 +1,9 @@
+## [1.8.1-activehacks]
+
+### Features
+
+* changed neo4j default to match with [BloodHound Automation](https://github.com/Tanguy-Boisset/bloodhound-automation) tool.
+
 ## [1.8.1](https://github.com/AD-Security/AD_Miner/compare/v1.8.0...v1.8.1) (2025-03-03)
 
 

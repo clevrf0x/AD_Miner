@@ -43,8 +43,8 @@ def args():
         "-p",
         "--password",
         type=str,
-        default="bloodhoundcommunityedition",
-        help="Neo4j password (default : bloodhoundcommunityedition)",
+        default="neo5j",
+        help="Neo4j password (default : neo5j)",
     )
     parser.add_argument(
         "-e",
