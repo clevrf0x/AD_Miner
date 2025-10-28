@@ -3,32 +3,37 @@
 # Built-in imports
 import json
 import shutil
-from pathlib import Path
-import time
-import traceback
 import signal
 import sys
+import time
+import traceback
+from pathlib import Path
 
 # Local library imports
-from ad_miner.sources.modules import logger, utils, generic_formating, main_page
-from ad_miner.sources.modules.neo4j_class import Neo4j, pre_request
-from ad_miner.sources.modules import controls
+from ad_miner.sources.modules import (
+    controls,
+    generic_formating,
+    logger,
+    main_page,
+    utils,
+)
 from ad_miner.sources.modules.common_analysis import (
-    rating_color,
+    genAllGroupsPage,
+    genAzureAdmin,
+    genAzureApps,
+    genAzureDevices,
+    genAzureGroups,
+    genAzureTenants,
+    genAzureUsers,
+    genAzureVM,
+    generateADCSListPage,
+    generateComputersListPage,
     generateDomainMapTrust,
     genNumberOfDCPage,
     genUsersListPage,
-    genAllGroupsPage,
-    generateComputersListPage,
-    generateADCSListPage,
-    genAzureTenants,
-    genAzureUsers,
-    genAzureAdmin,
-    genAzureGroups,
-    genAzureVM,
-    genAzureDevices,
-    genAzureApps,
+    rating_color,
 )
+from ad_miner.sources.modules.neo4j_class import Neo4j, pre_request
 
 # Third party library imports
 
@@ -121,6 +126,7 @@ def prepare_render(arguments) -> None:
     folder_name.mkdir(parents=True, exist_ok=True)
     (folder_name / "csv").mkdir()
     (folder_name / "html").mkdir()
+    (folder_name / "data").mkdir()  # Store result json files
 
     # Create redirect index.html
     (folder_name / "index.html").write_text(
@@ -163,14 +169,14 @@ def main() -> None:
 
     prepare_render(arguments)
 
-    neo4j_version, extract_date, total_objects, number_relations, boolean_azure = pre_request(
-        arguments
+    neo4j_version, extract_date, total_objects, number_relations, boolean_azure = (
+        pre_request(arguments)
     )
     arguments.boolean_azure = boolean_azure
-    version = neo4j_version.get('version')
+    version = neo4j_version.get("version")
     logger.print_success("Your neo4j database uses neo4j version " + version)
 
-    if not version.startswith('4.4.'):
+    if not version.startswith("4.4."):
         logger.print_error(
             "Your neo4j database version must be 4.4.X in order to fully use AD Miner"
         )
@@ -217,16 +223,16 @@ def main() -> None:
     data_rating: dict[str, dict[int, list]] = {}
     data_rating["on_premise"] = {
         1: [],  # immediate risk
-        2: [],
-        3: [],
+        2: [],  # potential risk
+        3: [],  # minor risk
         4: [],  # handled risk
         5: [],
         -1: [],  # -1 = not tested/disabled, 5 = tested and 0 matching
     }
     data_rating["azure"] = {
         1: [],  # immediate risk
-        2: [],
-        3: [],
+        2: [],  # potential risk
+        3: [],  # minor risk
         4: [],  # handled risk
         5: [],
         -1: [],  # -1 = not tested/disabled, 5 = tested and 0 matching
@@ -327,6 +333,45 @@ def main() -> None:
         dico_category,
         DESCRIPTION_MAP,
     )
+    # print(f"dico_data:\n{json.dumps(dico_data, indent=4)}\n\n")
+    # print(f"data_rating:\n{json.dumps(data_rating, indent=4)}\n\n")
+    # print(f"dico_name_description:\n{json.dumps(dico_name_description, indent=4)}\n\n")
+    # print(f"dico_rating_color:\n{json.dumps(dico_rating_color, indent=4)}\n\n")
+    # print(f"dico_category:\n{json.dumps(dico_category, indent=4)}\n\n")
+    # print(f"DESCRIPTION_MAP:\n{json.dumps(DESCRIPTION_MAP, indent=4)}\n\n")
+
+    # Scan overview
+    execution_result = []
+    for key, val in dico_name_description.items():
+        result = DESCRIPTION_MAP[key]
+        result["key"] = key
+        result["result"] = val
+        # get rating
+        result["severity"] = ""
+        if key in data_rating["on_premise"][1] or data_rating["azure"][1]:
+            result["severity"] = "critical"
+        elif key in data_rating["on_premise"][2] or data_rating["azure"][2]:
+            result["severity"] = "medium"
+        elif key in data_rating["on_premise"][3] or data_rating["azure"][3]:
+            result["severity"] = "low"
+        elif key in data_rating["on_premise"][4] or data_rating["azure"][4]:
+            result["severity"] = "fixed"
+        elif key in data_rating["on_premise"][5] or data_rating["azure"][5]:
+            # skip loop if no vuln
+            continue
+            # result["severity"] = "not_found"
+
+        execution_result.append(result)
+
+    # export json
+    try:
+        file_path = Path(f"render_{arguments.cache_prefix}/data/overview.json")
+        with open(file_path, "w") as file:
+            json.dump(execution_result, file, indent=4)
+        print(f"JSON data successfully written to '{file_path}'")
+    except IOError as e:
+        print(f"Error writing to file: {e}")
+
     neo4j.close()
 
     logger.print_success(
